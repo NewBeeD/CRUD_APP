@@ -3,31 +3,33 @@ import { Box, Typography, Stack, FormControl, FormLabel, FormControlLabel, TextF
 import { useState } from 'react'
 
 
-interface submitValue {
+interface SubmitValue {
 
-  emailAddress: string,
-  password: string
+  emailAddress?: string,
+  password?: string
 }
 
 const Homepage = () => {
 
-  const [formValues, setFormValue] = useState<submitValue>()
+  const [formValues, setFormValue] = useState<SubmitValue | null>(null)
 
-  const handleinputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleinputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => { 
 
     const {name, value} = event.target
-
+    
     setFormValue({...formValues, [name]: value})
+  }
 
+  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+    event.preventDefault()
+    console.log(formValues);
+    
   }
 
 
-
-
-
-
   return (
-    <Box display='flex' justifyContent='center' height='100vh' width='100%vw' sx={{ border: '7px solid black'}}>
+    <Box className='bg-color' display='flex' justifyContent='center' height='100vh' width='100%vw' sx={{ border: '7px solid black'}}>
 
       <Stack direction='column' alignItems='center'>
 
@@ -37,7 +39,7 @@ const Homepage = () => {
 
 
         <Box marginTop={{xs: 11}}>
-          <Typography variant='h4' sx={{ fontWeight: {xs: 700}, letterSpacing: {xs: '2px'}}}>Login</Typography>
+          <Typography sx={{ fontWeight: {xs: 700}, letterSpacing: {xs: '2px'}, fontSize: 27}}>Login</Typography>
         </Box>
 
         <form>
@@ -46,13 +48,13 @@ const Homepage = () => {
 
             <FormLabel sx={{ fontSize: {xs: '14px'}, color: '#BDBDBD'}}>Enter your login credential</FormLabel>
 
-            <Box marginTop={2}>
+            <Box marginTop={1}>
               <TextField 
               id='email-address'
-              name='email-address'
+              name='emailAddress'
               label='Enter your email'
               type='text'
-              value={formValues?.emailAddress}
+              value={formValues?.emailAddress || ''}
               onChange={handleinputChange}
               size='small'
               sx={{ background: '#EEEEEE'}}
@@ -66,7 +68,7 @@ const Homepage = () => {
               name='password'
               label='Enter your password'
               type='text'
-              value={formValues?.password}
+              value={formValues?.password || ''}
               onChange={handleinputChange}
               size='small'
               sx={{ background: '#EEEEEE'}}
@@ -82,7 +84,7 @@ const Homepage = () => {
           </FormControl>
 
           <Box display='flex' justifyContent='center' marginTop={{xs: 4}}>
-            <Button variant='contained' sx={{ background: 'black', width: {xs: '80px'}, height: {xs: '35px'}}}><Typography>Log in</Typography></Button>
+            <Button variant='contained' sx={{ background: 'black', width: {xs: '80px'}, height: {xs: '35px'}}} onClick={handleSubmit}><Typography>Log in</Typography></Button>
           </Box>
 
         </form>   

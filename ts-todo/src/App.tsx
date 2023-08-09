@@ -1,4 +1,6 @@
 import Homepage from "./pages/Homepage"
+import DailyTasks from "./pages/DailyTasks";
+import AddNewTask from "./pages/AddNewTask";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import { createTheme, ThemeProvider } from '@mui/material';
 
@@ -19,8 +21,8 @@ function App() {
           <Routes>
 
             <Route path="/" element={<Homepage />}/>
-            {/* <Route path="/home" element={<Dailytask />}/>
-            <Route path="/home" element={<Addtask />}/> */}
+            <Route path="/dailytasks" element={<DailyTasks />}/>
+            <Route path="/addtask" element={<AddNewTask />}/>
 
           </Routes>
         </Router>
