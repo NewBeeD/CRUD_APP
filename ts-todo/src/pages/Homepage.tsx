@@ -33,18 +33,18 @@ const Homepage = () => {
 
       <Stack direction='column' alignItems='center'>
 
-        <Box marginTop={{xs: 11}}>
+        <Box marginTop={{xs: 10}}>
           <Typography variant='h2'  sx={{ fontWeight: {xs:700}, letterSpacing: {xs: '3px'}}}>Task</Typography>
         </Box>
 
 
-        <Box marginTop={{xs: 11}}>
+        <Box marginTop={{xs: 9}}>
           <Typography sx={{ fontWeight: {xs: 700}, letterSpacing: {xs: '2px'}, fontSize: 27}}>Login</Typography>
         </Box>
 
         <form>
 
-          <FormControl sx={{ marginTop: {xs: '50px'}}}>
+          <FormControl sx={{ marginTop: {xs: '30px'}}}>
 
             <FormLabel sx={{ fontSize: {xs: '14px'}, color: '#BDBDBD'}}>Enter your login credential</FormLabel>
 
@@ -57,7 +57,7 @@ const Homepage = () => {
               value={formValues?.emailAddress || ''}
               onChange={handleinputChange}
               size='small'
-              sx={{ background: '#EEEEEE'}}
+              sx={{ background: '#EEEEEE', input: { color: 'black' }}}
               />
 
             </Box>
@@ -71,7 +71,7 @@ const Homepage = () => {
               value={formValues?.password || ''}
               onChange={handleinputChange}
               size='small'
-              sx={{ background: '#EEEEEE'}}
+              sx={{ background: '#EEEEEE', input: { color: 'black' }}}
               /> 
 
             </Box>

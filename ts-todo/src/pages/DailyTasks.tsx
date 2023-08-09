@@ -3,6 +3,8 @@ import { Box, Typography, Stack, FormControl, FormLabel, FormControlLabel, TextF
 import { useState } from 'react'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
 
 
@@ -48,9 +50,9 @@ const DailyTasks = () => {
 
 
   return (
-    <Box className='bg-dailytasks' display='flex' height='100vh' width='100%vw'>
+    <Box className='bg-dailytasks' display='flex' justifyContent='center' height='100vh' width='100%vw'>
 
-      <Stack direction='column' marginLeft={4}>
+      <Stack direction='column' marginLeft={0}>
 
         <Box>
           <Typography marginTop={10} variant='h3' sx={{ color: 'white'}}>Daily Tasks</Typography>
@@ -66,7 +68,9 @@ const DailyTasks = () => {
 
             <Paper key={item.task} elevation={2} sx={{ padding: '10px', marginTop: '14px', background: 'rgb(255, 255, 255, 0.2)', width: {xs: '300px'}, borderRadius: '6px'}}>
 
-              <Stack justifyContent='space-between' direction='row'>
+              <Stack justifyContent='space-between' direction='row' >
+
+                {<CheckBoxOutlineBlankIcon />}
                 <Typography sx={{ letterSpacing: '2px', color: 'white', fontSize: '20px'}}>{item.task}</Typography>
                 <DeleteOutlineOutlinedIcon style={{ color: '#cc2525'}}/>
               </Stack>           
